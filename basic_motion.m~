@@ -5,7 +5,7 @@ function basic_motion
     global topics;
     % Trajectory to cycle through.
     phi = pi/3.2;
-    theta = pi/2.3;
+    theta = pi/2.3;w
     %      _ _ _ _ _
     %     /\ θ
     %    /  \ <- link2 of robot
