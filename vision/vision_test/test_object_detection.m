@@ -1,7 +1,8 @@
 %% 
 
-scene = imread('scene.jpg');
-[rows, cols, colours] = size(rgbImage);
+scene = imread('shapes.png');
+%scene = imread('scene.jpg');
+[rows, cols, colours] = size(scene);
 
 % Show original image
 scenePlot = figure(1);
