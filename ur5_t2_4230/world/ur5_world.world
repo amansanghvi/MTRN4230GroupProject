@@ -1,0 +1,299 @@
+<?xml version="1.0" ?>
+ 
+<sdf version="1.5">
+	<world name="default">
+		<!-- A global light source -->
+		<include>
+			<uri>model://sun</uri>
+		</include>
+ 
+		<!-- A ground plane -->
+		<include>
+			<uri>model://ground_plane</uri>
+		</include>
+
+		<!-- kinect -->
+		<include>
+			<uri>model://kinect_ros</uri>
+			<static>true</static>
+			<pose>0.5 1 2 0.000000 1.5708 0</pose>
+		</include>
+
+		<!-- Item Table -->
+		<include>
+			<uri>model://item_table</uri>
+			<pose>0.5 1 0.8 0.000000 0 0</pose>
+		</include>
+
+		<!-- Triangle Pill RED -->
+		<include>
+			<uri>model://triangle_pill_red</uri>
+			<pose>0.5 1 0.85 0 0 0</pose>
+		</include>
+
+		<!-- Triangle Pill GREEN -->
+		<include>
+			<uri>model://triangle_pill_green</uri>
+			<pose>0.5 1.1 0.85 0 0 0</pose>
+		</include>
+
+		<!-- Triangle Pill Blue-->
+		<include>
+			<uri>model://triangle_pill_blue</uri>
+			<pose>0.5 1.2 0.85 0 0 0</pose>
+		</include>
+
+		<!-- Square Pill Red-->
+		<include>
+			<uri>model://square_pill_red</uri>
+			<pose>0.6 1 0.85 0 0 0</pose>
+		</include>
+
+		<!-- Square Pill Green-->
+		<include>
+			<uri>model://square_pill_green</uri>
+			<pose>0.6 1.1 0.85 0 0 0</pose>
+		</include>
+
+		<!-- Square Pill Blue-->
+		<include>
+			<uri>model://square_pill_blue</uri>
+			<pose>0.6 1.2 0.85 0 0 0</pose>
+		</include>
+		
+		<!-- pentagon Pill Red-->
+		<include>
+			<uri>model://pentagon_pill_red</uri>
+			<pose>0.7 1 0.85 0 0 0</pose>
+		</include>
+
+		<!-- pentagon Pill Green-->
+		<include>
+			<uri>model://pentagon_pill_green</uri>
+			<pose>0.7 1.1 0.85 0 0 0</pose>
+		</include>
+
+		<!-- pentagon Pill Blue-->
+		<include>
+			<uri>model://pentagon_pill_blue</uri>
+			<pose>0.7 1.2 0.85 0 0 0</pose>
+		</include>
+
+		<!-- cylinder Pill Red-->
+		<include>
+			<uri>model://cylinder_pill_red</uri>
+			<pose>0.4 1 0.85 0 0 0</pose>
+		</include>
+
+		<!-- cylinder Pill Green-->
+		<include>
+			<uri>model://cylinder_pill_green</uri>
+			<pose>0.4 1.1 0.85 0 0 0</pose>
+		</include>
+
+		<!-- cylinder Pill Blue-->
+		<include>
+			<uri>model://cylinder_pill_blue</uri>
+			<pose>0.4 1.2 0.85 0 0 0</pose>
+		</include>
+
+		<!-- Testing the automatic population of objects -->
+		<population name="Red Square_population">
+			<model name="Red Square">
+				<include>
+					<uri>model://square_pill_red</uri>
+				</include>
+			</model>
+			<pose>0.5 0.4 0.85 0 0 0</pose>
+			<box>
+				<size>0.5 0.5 0.01</size>
+			</box>
+			<model_count>2</model_count>
+			<distribution>
+				<type>random</type>
+			</distribution>
+		</population>
+
+		<population name="Blue Square_population">
+			<model name="Blue Square">
+				<include>
+					<uri>model://square_pill_blue</uri>
+				</include>
+			</model>
+			<pose>0.5 0.4 0.85 0 0 0</pose>
+			<box>
+				<size>0.5 0.5 0.01</size>
+			</box>
+			<model_count>2</model_count>
+			<distribution>
+				<type>random</type>
+			</distribution>
+		</population>
+
+		<population name="green Square_population">
+			<model name="green Square">
+				<include>
+					<uri>model://square_pill_green</uri>
+				</include>
+			</model>
+			<pose>0.5 0.4 0.85 0 0 0</pose>
+			<box>
+				<size>0.5 0.5 0.01</size>
+			</box>
+			<model_count>2</model_count>
+			<distribution>
+				<type>random</type>
+			</distribution>
+		</population>
+
+		<population name="Red cylinder_population">
+			<model name="Red cylinder">
+				<include>
+					<uri>model://cylinder_pill_red</uri>
+				</include>
+			</model>
+			<pose>0.5 0.4 0.85 0 0 0</pose>
+			<box>
+				<size>0.5 0.5 0.01</size>
+			</box>
+			<model_count>2</model_count>
+			<distribution>
+				<type>random</type>
+			</distribution>
+		</population>
+
+		<population name="Blue cylinder_population">
+			<model name="Blue cylinder">
+				<include>
+					<uri>model://cylinder_pill_blue</uri>
+				</include>
+			</model>
+			<pose>0.5 0.4 0.85 0 0 0</pose>
+			<box>
+				<size>0.5 0.5 0.01</size>
+			</box>
+			<model_count>2</model_count>
+			<distribution>
+				<type>random</type>
+			</distribution>
+		</population>
+
+		<population name="green cylinder_population">
+			<model name="green cylinder">
+				<include>
+					<uri>model://cylinder_pill_green</uri>
+				</include>
+			</model>
+			<pose>0.5 0.4 0.85 0 0 0</pose>
+			<box>
+				<size>0.5 0.5 0.01</size>
+			</box>
+			<model_count>2</model_count>
+			<distribution>
+				<type>random</type>
+			</distribution>
+		</population>
+		
+		<population name="Red triangle_population">
+			<model name="Red triangle">
+				<include>
+					<uri>model://triangle_pill_red</uri>
+				</include>
+			</model>
+			<pose>0.5 0.4 0.85 0 0 0</pose>
+			<box>
+				<size>0.5 0.5 0.01</size>
+			</box>
+			<model_count>2</model_count>
+			<distribution>
+				<type>random</type>
+			</distribution>
+		</population>
+
+		<population name="Blue triangle_population">
+			<model name="Blue triangle">
+				<include>
+					<uri>model://triangle_pill_blue</uri>
+				</include>
+			</model>
+			<pose>0.5 0.4 0.85 0 0 0</pose>
+			<box>
+				<size>0.5 0.5 0.01</size>
+			</box>
+			<model_count>2</model_count>
+			<distribution>
+				<type>random</type>
+			</distribution>
+		</population>
+
+		<population name="green triangle_population">
+			<model name="green triangle">
+				<include>
+					<uri>model://triangle_pill_green</uri>
+				</include>
+			</model>
+			<pose>0.5 0.4 0.85 0 0 0</pose>
+			<box>
+				<size>0.5 0.5 0.01</size>
+			</box>
+			<model_count>2</model_count>
+			<distribution>
+				<type>random</type>
+			</distribution>
+		</population>
+
+		<population name="Red pentagon_population">
+			<model name="Red pentagon">
+				<include>
+					<uri>model://pentagon_pill_red</uri>
+				</include>
+			</model>
+			<pose>0.5 0.4 0.85 0 0 0</pose>
+			<box>
+				<size>0.5 0.5 0.01</size>
+			</box>
+			<model_count>2</model_count>
+			<distribution>
+				<type>random</type>
+			</distribution>
+		</population>
+
+		<population name="Blue pentagon_population">
+			<model name="Blue pentagon">
+				<include>
+					<uri>model://pentagon_pill_blue</uri>
+				</include>
+			</model>
+			<pose>0.5 0.4 0.85 0 0 0</pose>
+			<box>
+				<size>0.5 0.5 0.01</size>
+			</box>
+			<model_count>2</model_count>
+			<distribution>
+				<type>random</type>
+			</distribution>
+		</population>
+
+		<population name="green pentagon_population">
+			<model name="green pentagon">
+				<include>
+					<uri>model://pentagon_pill_green</uri>
+				</include>
+			</model>
+			<pose>0.5 0.4 0.85 0 0 0</pose>
+			<box>
+				<size>0.5 0.5 0.01</size>
+			</box>
+			<model_count>2</model_count>
+			<distribution>
+				<type>random</type>
+			</distribution>
+		</population>
+
+		
+		
+             
+
+		
+	</world>
+</sdf>
