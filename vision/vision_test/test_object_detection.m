@@ -73,6 +73,7 @@ for i = 1:size(blobMeasurements,1)
     shapes = [shapes;add_shapes(blobMeasurements(i),col);];
 end
 
+saveas(gcf,'analysis.png');
 
 %% Create and display table with information on all detected objects
 
@@ -89,6 +90,8 @@ summary(shapes,1)
 summary(shapes,4)
 s = summary(shapes);
 
-cat_count = table('Size',[4 3],'VariableTypes',{'uint8','uint8','uint8'});
-cat_count.Properties.VariableNames = {'Red','Green','Blue'};
-cat_count.Properties.RowNames = {'Square','Circle','Triangle','Pentagon'};
+% cat_count = table('Size',[4 3],'VariableTypes',{'uint8','uint8','uint8'});
+% cat_count.Properties.VariableNames = {'Red','Green','Blue'};
+% cat_count.Properties.RowNames = {'Rectangle','Circle','Triangle','Pentagon'};
+
+% cat_count({'Rectangle'},{'Blue'}) = sum(shapes.Colour == 'Blue' & shapes.Shape == 'Rectangle')

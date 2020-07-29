@@ -8,15 +8,7 @@ entry.Colour = shape_colour;
 entry.Centroid = blobMeasurement.Centroid;
 
 circularity = [blobMeasurement.Perimeter].^2 ./ (4 * pi * [blobMeasurement.Area]);
-if circularity < 1.0
-	shapeLabel = 'Circle';
-elseif circularity < 1.1
-    shapeLabel = 'Pentagon';
-elseif circularity < 1.3
-	shapeLabel = 'Rectangle';
-else
-    shapeLabel = 'Triangle';
-end
+shapeLabel = shape_detect(circularity);
 
 entry.Circularity = circularity;
 entry.Shape = shapeLabel;
