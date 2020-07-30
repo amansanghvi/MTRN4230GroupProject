@@ -1,4 +1,4 @@
-%% Forward Kinematics of UR5s
+%% Forward Kinematics of UR5
 function [x_ee,y_ee,z_ee]  = ur5_fkin(ti)
 
 % ti: Initial theta values
@@ -9,6 +9,7 @@ theta4 = ti(4);
 theta5 = ti(5);
 theta6 = ti(6);
 
+% From UR5 manual/literature
 d1 = 0.089159; 
 a2 = -0.425; 
 a3 = -0.39225;
