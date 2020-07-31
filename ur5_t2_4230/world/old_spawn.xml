@@ -1,0 +1,71 @@
+		<!-- Triangle Pill RED -->
+		<include>
+			<uri>model://triangle_pill_red</uri>
+			<pose>0.5 1 0.85 0 0 0</pose>
+		</include>
+
+		<!-- Triangle Pill GREEN -->
+		<include>
+			<uri>model://triangle_pill_green</uri>
+			<pose>0.5 1.1 0.85 0 0 0</pose>
+		</include>
+
+		<!-- Triangle Pill Blue-->
+		<include>
+			<uri>model://triangle_pill_blue</uri>
+			<pose>0.5 1.2 0.85 0 0 0</pose>
+		</include>
+
+		<!-- Square Pill Red-->
+		<include>
+			<uri>model://square_pill_red</uri>
+			<pose>0.6 1 0.85 0 0 0</pose>
+		</include>
+
+		<!-- Square Pill Green-->
+		<include>
+			<uri>model://square_pill_green</uri>
+			<pose>0.6 1.1 0.85 0 0 0</pose>
+		</include>
+
+		<!-- Square Pill Blue-->
+		<include>
+			<uri>model://square_pill_blue</uri>
+			<pose>0.6 1.2 0.85 0 0 0</pose>
+		</include>
+		
+		<!-- pentagon Pill Red-->
+		<include>
+			<uri>model://pentagon_pill_red</uri>
+			<pose>0.7 1 0.85 0 0 0</pose>
+		</include>
+
+		<!-- pentagon Pill Green-->
+		<include>
+			<uri>model://pentagon_pill_green</uri>
+			<pose>0.7 1.1 0.85 0 0 0</pose>
+		</include>
+
+		<!-- pentagon Pill Blue-->
+		<include>
+			<uri>model://pentagon_pill_blue</uri>
+			<pose>0.7 1.2 0.85 0 0 0</pose>
+		</include>
+
+		<!-- cylinder Pill Red-->
+		<include>
+			<uri>model://cylinder_pill_red</uri>
+			<pose>0.4 1 0.85 0 0 0</pose>
+		</include>
+
+		<!-- cylinder Pill Green-->
+		<include>
+			<uri>model://cylinder_pill_green</uri>
+			<pose>0.4 1.1 0.85 0 0 0</pose>
+		</include>
+
+		<!-- cylinder Pill Blue-->
+		<include>
+			<uri>model://cylinder_pill_blue</uri>
+			<pose>0.4 1.2 0.85 0 0 0</pose>
+		</include>
