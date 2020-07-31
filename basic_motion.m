@@ -7,14 +7,14 @@ function basic_motion
     phi = pi/3.2;
     theta = pi/2.3;
     %      _ _ _ _ _
-    %     /\ θ
+    %     /\ ?
     %    /  \ <- link2 of robot
     %   /    \
-    % Φ/      O <- spherical wrist.
+    % ?/      O <- spherical wrist.
     % /      
     %/ <- link1 of robot
     robot.POS_RETRACT_ORIGIN = [0,   -1.44,  1.4, -pi/2, -pi/2, 0];
-    robot.POS_RETRACT_DEST = [-pi/2, -1.44,  1.4, -pi/2, -pi/2, 0];
+    robot.POS_RETRACT_DEST = [0, -1.44,  1.4, -pi/2, -pi/2, 0];
     robot.POS_EXTEND_ORIGIN = [0,   -pi/2+phi, (pi/2-phi)+theta, -pi/2-theta, -pi/2, 0];
     robot.POS_EXTEND_DEST = [-pi/2, -pi/2+phi, (pi/2-phi)+theta, -pi/2-theta, -pi/2, 0];
     robot.duration = 2;
@@ -52,11 +52,11 @@ function basic_motion
 
     % Used to move the kinect to (-2, 0, 0).
     modelPublisher = rospublisher(topics.MODEL_STATE);
-    modelMsg = modelPublisher.rosmessage();
-    modelMsg.ModelName = 'kinect_ros';
-    modelMsg.ReferenceFrame = 'world';
-    modelMsg.Pose.Position.X = -2;
-    send(modelPublisher, modelMsg);
+    %modelMsg = modelPublisher.rosmessage();
+    %modelMsg.ModelName = 'kinect_ros';
+    %modelMsg.ReferenceFrame = 'world';
+    %modelMsg.Pose.Position.X = -2;
+    %send(modelPublisher, modelMsg);
     pause(2);
 
 
@@ -76,7 +76,7 @@ function basic_motion
     while(1)
         nextWaypoint = waypoints(mod(count, length(waypoints(:,1)))+1,:);
         msg = moveToPos(positionPublisher, msg, nextWaypoint);
-        disp(msg.Points.Positions);
+        %disp(msg.Points.Positions);
         count = count + 1;
     end
 end
@@ -101,4 +101,3 @@ function [msg] = moveToPos(publisher, msg, waypoint)
     send(publisher,msg);
     pause(msg.Points.TimeFromStart.Sec+1);
 end
-
