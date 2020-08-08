@@ -30,18 +30,19 @@ function basic_motion
     topics.LINK_STATES = "/gazebo/link_states";
     topics.MODEL_STATE = "/gazebo/set_model_state";
     topics.ARM_COMMAND = "/arm_controller/command";
-    % Obtain the current state of the robot.
-    stateSubscriber = rossubscriber(topics.ARM_STATE);
-    pause(1);
-    % Get jointNames from current state.
-    robot.jointNames = stateSubscriber.LatestMessage.JointNames;
 
-    ipaddress = '10.10.14.65';
+    ipaddress = '192.168.0.39';
 %     ipaddress = '10.10.14.24';
     robot.robotType = 'Gazebo';
 
     rosshutdown;
     rosinit(ipaddress);
+    
+    % Obtain the current state of the robot.
+    stateSubscriber = rossubscriber(topics.ARM_STATE);
+    pause(1);
+    % Get jointNames from current state.
+    robot.jointNames = stateSubscriber.LatestMessage.JointNames;
 
     blockposes = rossubscriber(topics.LINK_STATES);
     pause(1);
