@@ -14,14 +14,20 @@ function basic_motion
     % /      
     %/ <- link1 of robot
     robot.POS_RETRACT_ORIGIN = [0,   -1.44,  1.4, -pi/2, -pi/2, 0];
-    robot.POS_RETRACT_DEST = [0, -1.44,  1.4, -pi/2, -pi/2, 0];
+    robot.POS_RETRACT_MIDPOS = [-pi/3, -1.44,  1.4, -pi/2, -pi/2, 0];
+    robot.POS_RETRACT_DEST = [-2*pi/3, -1.44,  1.4, -pi/2, -pi/2, 0];
+    
     robot.POS_EXTEND_ORIGIN = [0,   -pi/2+phi, (pi/2-phi)+theta, -pi/2-theta, -pi/2, 0];
-    robot.POS_EXTEND_DEST = [-pi/2, -pi/2+phi, (pi/2-phi)+theta, -pi/2-theta, -pi/2, 0];
+    robot.POS_EXTEND_MIDPOS = [-pi/3, -pi/2+phi, (pi/2-phi)+theta, -pi/2-theta, -pi/2, 0];
+    robot.POS_EXTEND_DEST = [-2*pi/3, -pi/2+phi, (pi/2-phi)+theta, -pi/2-theta, -pi/2, 0];
     robot.duration = 2;
 
     waypoints = [robot.POS_RETRACT_ORIGIN; 
                  robot.POS_EXTEND_ORIGIN;
                  robot.POS_RETRACT_ORIGIN;
+                 robot.POS_RETRACT_MIDPOS;
+                 robot.POS_EXTEND_MIDPOS;
+                 robot.POS_RETRACT_MIDPOS;
                  robot.POS_RETRACT_DEST;
                  robot.POS_EXTEND_DEST;
                  robot.POS_RETRACT_DEST];
@@ -31,7 +37,7 @@ function basic_motion
     topics.MODEL_STATE = "/gazebo/set_model_state";
     topics.ARM_COMMAND = "/arm_controller/command";
 
-    ipaddress = '192.168.0.39';
+    ipaddress = '192.168.0.41';
 %     ipaddress = '10.10.14.24';
     robot.robotType = 'Gazebo';
 
