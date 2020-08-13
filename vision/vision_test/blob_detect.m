@@ -1,7 +1,6 @@
-function [labeledImage,numberOfObjects,blobMeasurements, circularities] = blob_detect(maskedImage)
+function [labeledImage,numberOfObjects,blobMeasurements] = blob_detect(maskedImage)
 
 [labeledImage,numberOfObjects] = bwlabel(maskedImage);
 blobMeasurements = regionprops(labeledImage,'Perimeter','Area', 'Centroid','Circularity'); 
-circularities = [blobMeasurements.Perimeter].^2 ./ (4 * pi * [blobMeasurements.Area]);
-
+%circularities = [blobMeasurements.Perimeter].^2 ./ (4 * pi * [blobMeasurements.Area]);
 end
