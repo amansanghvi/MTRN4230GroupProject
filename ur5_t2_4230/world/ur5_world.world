@@ -33,7 +33,7 @@
 		</include>
 		
 		<!-- Testing the automatic population of objects -->
-		<population name="Red Square_population">
+		<!-- <population name="Red Square_population">
 			<model name="Red Square">
 				<include>
 					<uri>model://square_pill_red</uri>
@@ -223,7 +223,7 @@
 			<distribution>
 				<type>random</type>
 			</distribution>
-		</population>
+		</population> -->
 
 		
 		
