@@ -43,15 +43,13 @@ function basic_motion
     rosinit(ipaddress);
     
     
-    robot.gripper = rospublisher("/ur5/vacuum_gripper/grasping");
+    robot.gripperOn = rossvcclient("/ur5/vacuum_gripper/on");
+    robot.gripperOff = rossvcclient("/ur5/vacuum_gripper/off");
     for i=1:8
-        if i == 3
-            robot.gripper(i+1) = rospublisher("/ur5/vacuum_gripper" + i + "/grasping" + (i-1));
-        else
-            robot.gripper(i+1) = rospublisher("/ur5/vacuum_gripper" + i + "/grasping" + i);
-        end
+        robot.gripperOn(i+1) = rossvcclient("/ur5/vacuum_gripper" + i + "/on");
+        robot.gripperOff(i+1) = rossvcclient("/ur5/vacuum_gripper" + i + "/off");
     end
-    robot.gripperMsg = rosmessage("std_msgs/Bool");
+    robot.gripperMsg = rosmessage('std_srvs/Empty');
     
     % Obtain the current state of the robot.
     stateSubscriber = rossubscriber(topics.ARM_STATE);
@@ -120,16 +118,14 @@ end
 
 function enable_gripper()
     global robot;
-    robot.gripperMsg.Data = 1;
-    for i=1:length(robot.gripper)
-        send(robot.gripper(i), robot.gripperMsg);
+    for i=1:length(robot.gripperOn)
+        call(robot.gripperOn(i), rosmessage('std_srvs/Empty'))
     end
 end
 
 function disable_gripper()
     global robot;
-    robot.gripperMsg.Data = 0;
-    for i=1:length(robot.gripper)
-        send(robot.gripper(i), robot.gripperMsg);
+    for i=1:length(robot.gripperOff)
+        call(robot.gripperOff(i), rosmessage('std_srvs/Empty'))
     end
 end
