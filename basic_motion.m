@@ -20,6 +20,7 @@ function basic_motion
     robot.POS_EXTEND_ORIGIN = [0,   -pi/2+phi, (pi/2-phi)+theta, -pi/2-theta, -pi/2, 0];
     robot.POS_EXTEND_MIDPOS = [-pi/3, -pi/2+phi, (pi/2-phi)+theta, -pi/2-theta, -pi/2, 0];
     robot.POS_EXTEND_DEST = [-2*pi/3, -pi/2+phi, (pi/2-phi)+theta, -pi/2-theta, -pi/2, 0];
+    
     robot.duration = 2;
 
     waypoints = [robot.POS_RETRACT_ORIGIN; 
@@ -27,10 +28,7 @@ function basic_motion
                  robot.POS_RETRACT_ORIGIN;
                  robot.POS_RETRACT_MIDPOS;
                  robot.POS_EXTEND_MIDPOS;
-                 robot.POS_RETRACT_MIDPOS;
-                 robot.POS_RETRACT_DEST;
-                 robot.POS_EXTEND_DEST;
-                 robot.POS_RETRACT_DEST];
+                 robot.POS_RETRACT_MIDPOS];
 
     topics.ARM_STATE = "/arm_controller/state";
     topics.LINK_STATES = "/gazebo/link_states";
@@ -43,6 +41,17 @@ function basic_motion
 
     rosshutdown;
     rosinit(ipaddress);
+    
+    
+    robot.gripper = rospublisher("/ur5/vacuum_gripper/grasping");
+    for i=1:8
+        if i == 3
+            robot.gripper(i+1) = rospublisher("/ur5/vacuum_gripper" + i + "/grasping" + (i-1));
+        else
+            robot.gripper(i+1) = rospublisher("/ur5/vacuum_gripper" + i + "/grasping" + i);
+        end
+    end
+    robot.gripperMsg = rosmessage("std_msgs/Bool");
     
     % Obtain the current state of the robot.
     stateSubscriber = rossubscriber(topics.ARM_STATE);
@@ -107,4 +116,20 @@ function [msg] = moveToPos(publisher, msg, waypoint)
     
     send(publisher,msg);
     pause(msg.Points.TimeFromStart.Sec+1);
+end
+
+function enable_gripper()
+    global robot;
+    robot.gripperMsg.Data = 1;
+    for i=1:length(robot.gripper)
+        send(robot.gripper(i), robot.gripperMsg);
+    end
+end
+
+function disable_gripper()
+    global robot;
+    robot.gripperMsg.Data = 0;
+    for i=1:length(robot.gripper)
+        send(robot.gripper(i), robot.gripperMsg);
+    end
 end
