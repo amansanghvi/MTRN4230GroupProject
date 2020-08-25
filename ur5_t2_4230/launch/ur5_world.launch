@@ -37,4 +37,7 @@
 	  <!-- Remap follow_joint_trajectory -->
 	  <remap if="$(arg sim)" from="/follow_joint_trajectory" to="/arm_controller/follow_joint_trajectory"/>
 
+	  <!--Start Python Scrip to Spawn Objects-->
+	  <node name="object_spawner" pkg="ur5_t2_4230" type="object_spawner.py" output="screen" />
+
 </launch>
