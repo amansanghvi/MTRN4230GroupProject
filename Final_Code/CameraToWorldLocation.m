@@ -21,6 +21,6 @@ function worldCoords = CameraToWorldLocation(centroids,cameraParams)
     %translationVector = [-0.5 -1 -1.7];
     worldPoints = pointsToWorld(cameraParams,R,t,centroids);
     %table is fixed at 0.8m above table
-    depths = ones(size(centroids,1),1)*0.85;
+    depths = ones(size(centroids,1),1)*0.95;
     worldCoords = [worldPoints depths];
 end

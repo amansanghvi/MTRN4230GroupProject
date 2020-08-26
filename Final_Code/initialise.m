@@ -1,7 +1,7 @@
 function [robot] = initialise
     global topics;
     
-    ipaddress = '192.168.0.41';
+    ipaddress = '10.10.14.73';
     robot.robotType = 'Gazebo';
     rosshutdown;
     rosinit(ipaddress);
@@ -9,7 +9,7 @@ function [robot] = initialise
     mdl_ur5;
     robot.ur5 = ur5;
     % Trajectory to cycle through.
-    phi = pi/8;
+    phi = pi/4;
     theta = pi/8;
     %      _ _ _ _ _
     %     /\ ?
@@ -25,7 +25,7 @@ function [robot] = initialise
 %     robot.POS_BOX = ur5_ikin(1-box_x, -(box_y+1), box_z+1-0.1, robot.ur5, robot.q0); % transform to world view
     
     robot.POS_HOME = [0,   -1.44,  1.4, -pi/2, -pi/2, 0];
-    robot.POS_BOX = [-pi/3, -pi/2+phi, (pi/2-phi)+theta, -pi/2-theta, -pi/2, 0];
+    robot.POS_BOX = [-pi/2.5, -pi/2+phi, (pi/2-phi)+theta, -pi/2-theta, -pi/2, 0];
     robot.duration = 1.5;
 
     topics.ARM_STATE = "/arm_controller/state";
