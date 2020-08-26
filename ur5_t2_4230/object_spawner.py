@@ -60,8 +60,8 @@ if __name__ == '__main__':
 
     #Create 2D grid of Shape Centres
     #Each centre is randomly offset to provide pseudo random placements
-    num_cols = 5
-    num_rows = 5
+    num_cols = 4
+    num_rows = 7
     zone_width = 110
     zone_height = 110
     offset = 25
@@ -69,8 +69,8 @@ if __name__ == '__main__':
 
     for i in range(0,num_rows):
         for j in range (0,num_cols):
-            centre_x = (300 + zone_width*j + zone_width/2  + rand.randrange(-offset,offset))/1000.0
-            centre_y = (900 + zone_height*i + zone_height/2 + rand.randrange(-offset,offset))/1000.0
+            centre_x = (350 + zone_width*j + zone_width/2  + rand.randrange(-offset,offset))/1000.0
+            centre_y = (700 + zone_height*i + zone_height/2 + rand.randrange(-offset,offset))/1000.0
             centre_points[i][j] = (centre_x,centre_y)
     
     print(centre_points)
@@ -86,7 +86,7 @@ if __name__ == '__main__':
     for i in range(0,num_rows):
         for j in range (0,num_cols):
             orient = Quaternion(*tf.transformations.quaternion_from_euler(0,0,rand.randint(0,360)))
-            item_pose = Pose(Point(centre_points[i][j][0],centre_points[i][j][1],0.85 ),   orient)
+            item_pose = Pose(Point(centre_points[i][j][0],centre_points[i][j][1],0.95 ),   orient)
             item_name   =   "object_{0}_{1}".format(i,j)
             item_type = shape_vector[rand.randint(0,len(shape_vector)-1)]
             print("spawnig " + item_name)
