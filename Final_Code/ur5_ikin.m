@@ -4,7 +4,7 @@
 function [tee]  = ur5_ikin(x_ee,y_ee,z_ee, ur5, ti)
 
 %% Converts world frame cartesian coordinates to UR5 base frame
-ee_displacement = 0.1; % can change depending on size of EE
+ee_displacement = 0.01; % can change depending on size of EE
 x_ee = -x_ee;
 y_ee = 1 - y_ee;
 z_ee = z_ee - 1 + ee_displacement;

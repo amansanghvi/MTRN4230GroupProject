@@ -1,8 +1,8 @@
 function [total_picks, shape_color_list] = pick_ui
     global ui;
     ui.start = false;
-    ui.shapesPicked = [];
-    ui.colorsPicked = [];
+    ui.shapesPicked = ["Triangle"];
+    ui.colorsPicked = ["Red"];
     ui.totalPicks = 10;
     
     ui.fig = uifigure('Position', [100 100 500 300], 'CloseRequestFcn', @onDone);
