@@ -93,6 +93,7 @@ function new_centroids = get_shape_centroids_from_colour(colourMask,ShapeColour,
     [labeledImage,numberOfObjects,blobMeasurements] = blob_detect(colourMask);
     for i = 1:size(blobMeasurements,1)
         shapeLabel = shape_detect(blobMeasurements(i));
+        %disp(shapeLabel);
         if ismember(shapeLabel,ShapeColour)
             new_centroids = [new_centroids;blobMeasurements(i).Centroid];
         end
@@ -105,13 +106,13 @@ function shape = shape_detect(blobMeasurement)
 n = blobMeasurement.Area;
 k = blobMeasurement.Circularity;
 
-if n < 1000
+if n < 450
         shape = ShapeColourEnum.Triangle;
-    elseif n < 1850 && k > 0.9
+    elseif n < 700 && k > 0.9
         shape = ShapeColourEnum.Circle;
-    elseif n < 2200 && k > 0.8
+    elseif n < 820 && k > 0.8
         shape = ShapeColourEnum.Pentagon;
-    elseif n < 3500
+    elseif n < 1000
         shape = ShapeColourEnum.Square;
 else
     shape = ShapeColourEnum.Invalid;
