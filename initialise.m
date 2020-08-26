@@ -49,8 +49,8 @@ function [robot] = initialise
     robot.posMsg.Points.TimeFromStart = rosduration(robot.duration);
     % Initially in the first position
     move_to_pos(robot, robot.POS_HOME);
-    
-    robot.imSub = rossubscriber('/camera/color/image_raw');
+    robot.IMG_TOPIC = '/camera/color/image_raw';
+    robot.imSub = rossubscriber(robot.IMG_TOPIC);
     
 end
 
