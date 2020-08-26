@@ -4,7 +4,7 @@ function main
     [total_picks, shape_color_vals] = pick_ui();
   
     for i=1:total_picks
-        move_to_pos(robot, robot.POS_HOME);
+        move_to_pos(robot, robot.POS_BOX);
         imgSub = rossubscriber(robot.IMG_TOPIC);
         img = readImage(imgSub.LatestMessage);
         
@@ -16,10 +16,6 @@ function main
         move_to_pos(robot, robot.POS_BOX);
         gripper_off(robot);
     end
-    % get_obj_locations(image, [shape_colour_enum]) -> vector of centroids [x, y]; Camera frame
-    % Camera to world -> camera centroids to world centroids.
-    % inv_kine to get joint position
-    % place robot above box to drop.
 end
 
 

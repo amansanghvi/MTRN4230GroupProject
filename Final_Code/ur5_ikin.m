@@ -1,7 +1,7 @@
 %% Inverse Kinematics using Peter Corke Toolbox
 % Receives initial/current joint angles + desired EE pose
 % Spits out desired joint angles
-function [tee]  = ur5_ikin(x_ee,y_ee,z_ee,ti,ur5)
+function [tee]  = ur5_ikin(x_ee,y_ee,z_ee, ur5, ti)
 
 %% Converts world frame cartesian coordinates to UR5 base frame
 ee_displacement = 0.1; % can change depending on size of EE
