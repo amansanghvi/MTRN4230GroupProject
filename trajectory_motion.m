@@ -37,7 +37,7 @@ function trajectory_motion
     topics.JOINT_GOAL  = "/arm_controller/follow_joint_trajectory/goal";
     topics.GOAL_ACTION = "/arm_controller/follow_joint_trajectory";
 
-    ipaddress = '192.168.0.39';
+    ipaddress = '192.168.0.41';
     robot.robotType = 'Gazebo';
 
     rosshutdown;
@@ -90,5 +90,4 @@ function trajectory_motion
     
     disp("Sending...");
     sendGoal(client, msg);
-    
 end
