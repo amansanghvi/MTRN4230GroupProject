@@ -39,14 +39,14 @@ function [total_picks, shape_color_list] = pick_ui
         end
     end
     disp(all_combinations);
-    
+    % TODO: FIX THIS
     total_picks = ui.totalPicks;
-    shape_color_list = zeros(length(ui.shapesPicked) + length(ui.colorsPicked));
+    shape_color_list = ShapeColourEnum.(ui.shapesPicked(1));
     for i=length(ui.shapesPicked)
         shape_color_list(i) = ShapeColourEnum.(ui.shapesPicked(i));
     end
     for i=length(ui.colorsPicked)
-        shape_color_list(length(ui.shapesPicked) + i) = ShapeColourEnum.(ui.colordPicked(i));
+        shape_color_list(length(ui.shapesPicked) + i) = ShapeColourEnum.(ui.colorsPicked(i));
     end
 end
 

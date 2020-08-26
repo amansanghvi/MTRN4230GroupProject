@@ -7,10 +7,10 @@ function motion_with_vision
     phi = pi/3.2;
     theta = pi/2.3;
     %      _ _ _ _ _
-    %     /\ ?
+    %     /\ 
     %    /  \ <- link2 of robot
     %   /    \
-    % ?/      O <- spherical wrist.
+    %  /      O <- spherical wrist.
     % /      
     %/ <- link1 of robot
     robot.POS_RETRACT_ORIGIN = [0,   -1.44,  1.4, -pi/2, -pi/2, 0];

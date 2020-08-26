@@ -9,8 +9,8 @@ function [robot] = initialise
     mdl_ur5;
     robot.ur5 = ur5;
     % Trajectory to cycle through.
-    phi = pi/3.2;
-    theta = pi/2.3;
+    phi = pi/8;
+    theta = pi/8;
     %      _ _ _ _ _
     %     /\ ?
     %    /  \ <- link2 of robot
@@ -18,8 +18,11 @@ function [robot] = initialise
     % ?/      O <- spherical wrist.
     % /      
     %/ <- link1 of robot
-    robot.POS_HOME = [0,   -1.44,  1.4, -pi/2, -pi/2, 0];
-    robot.POS_BOX = [-pi/3, -pi/2+phi, (pi/2-phi)+theta, -pi/2-theta, -pi/2, 0];
+    robot.q0 = [0,   -1.44,  1.4, -pi/2, -pi/2, 0];
+    [home_x, home_y, home_z] = ur5_fkin([0,   -1.44,  1.4, -pi/2, -pi/2, 0]);
+    robot.POS_HOME = ur5_ikin(1-home_x, -(home_y+1), home_z+1-0.1, robot.ur5, robot.q0); % transform to world view
+    [box_x, box_y, box_z] = ur5_fkin([-pi/3, -pi/2+phi, (pi/2-phi)+theta, -pi/2-theta, -pi/2, 0]);
+    robot.POS_BOX = ur5_ikin(1-box_x, -(box_y+1), box_z+1-0.1, robot.ur5, robot.q0); % transform to world view
     
     robot.duration = 1.5;
 

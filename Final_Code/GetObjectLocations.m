@@ -103,7 +103,7 @@ end
 function shape = shape_detect(blobMeasurement)
 
 n = blobMeasurement.Area;
-k = blobMeasurement.Circularity;
+k = blobMeasurement.Eccentricity;
 
 if n < 1000
         shape = ShapeColourEnum.Triangle;
@@ -123,7 +123,7 @@ end
 function [labeledImage,numberOfObjects,blobMeasurements] = blob_detect(maskedImage)
 
 [labeledImage,numberOfObjects] = bwlabel(maskedImage);
-blobMeasurements = regionprops(labeledImage,'Perimeter','Area', 'Centroid','Circularity'); 
+blobMeasurements = regionprops(labeledImage,'Perimeter','Area', 'Centroid','Eccentricity'); 
 %circularities = [blobMeasurements.Perimeter].^2 ./ (4 * pi * [blobMeasurements.Area]);
 end
 
