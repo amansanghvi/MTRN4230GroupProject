@@ -2,6 +2,12 @@
 %-------------------------------------------------------
 
 function cameraParams = get_kinect_camera_params(imageFileName1, imageFileName2)
+if isfile('KinectCameraParams.mat')
+    disp("Loading Kinect Camera Parameters From File");
+    load('KinectCameraParams.mat','cameraParams');
+    return;
+end
+disp("Regenerating Kinect Camera Parameters From Images");
 % Define images to process
 imageFileNames = {imageFileName1 imageFileName2};
 % Detect checkerboards in images
@@ -22,7 +28,7 @@ worldPoints = generateCheckerboardPoints(boardSize, squareSize);
     'NumRadialDistortionCoefficients', 2, 'WorldUnits', 'millimeters', ...
     'InitialIntrinsicMatrix', [], 'InitialRadialDistortion', [], ...
     'ImageSize', [mrows, ncols]);
-
+save KinectCameraParams cameraParams
 % View reprojection errors
 %h1=figure; showReprojectionErrors(cameraParams);
 

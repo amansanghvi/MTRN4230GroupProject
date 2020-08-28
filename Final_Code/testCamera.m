@@ -18,7 +18,7 @@ testIm  = imread('testImage.png');
 imshow(testIm);
 hold on;
 centroids = GetObjectLocations(testIm,...
-            [ShapeColourEnum.Red, ShapeColourEnum.Circle]);
+            [ShapeColourEnum.Red, ShapeColourEnum.Square]);
 plot(centroids(:,1), centroids(:,2), 'w+');
 worldCoords = CameraToWorldLocation(centroids,cameraParams);
 disp(centroids);

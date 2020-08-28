@@ -1,7 +1,5 @@
-function [robot] = initialise
+function [robot] = initialise(ipaddress)
     global topics;
-    
-    ipaddress = '10.10.14.73';
     robot.robotType = 'Gazebo';
     rosshutdown;
     rosinit(ipaddress);
