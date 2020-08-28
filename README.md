@@ -15,5 +15,8 @@ All MATLAB Submission Code can be found in 'Final_Code'
 
 # References 
 https://github.com/lihuang3/ur5_ROS-Gazebo
+
 https://github.com/ros-industrial/universal_robot
+
 https://github.com/lihuang3/ur5_ROS-Gazebo/issues/13
+
