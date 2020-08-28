@@ -1,5 +1,5 @@
-# MTRN4230GroupProject
-Group project for MTRN4230
+# MTRN4230 G05 Group Project
+Group project for G05 of MTRN4230 T2 2020
 
 # Submission Code
 All MATLAB Submission Code can be found in 'Final_Code'
