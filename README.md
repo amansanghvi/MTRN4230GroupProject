@@ -1,6 +1,8 @@
 # MTRN4230GroupProject
 Group project for MTRN4230
 
+# Submission Code
+All MATLAB Submission Code can be found in 'Final_Code'
 # Installation Instructions
 1. Copy the universal_robot and ur5_t2_4230 folders into their respective paths and overwrite all files
 2. Modify start_project.sh to include the correct IP address
